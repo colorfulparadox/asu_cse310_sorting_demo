@@ -53,7 +53,7 @@ int partition(int array[], int p, int r, char *info) {
 
     if (p < r) {
         printf("p: %d, r: %d\n", i, r);
-        printf("PIVOT HIGHLIGHT STATUS: %s: ", info);
+        printf("PIVOT HIGHLIGHT [STATUS: %s]: ", info);
         print_array_with_highlight(array, 0, max_size, r-1);
     }
 
