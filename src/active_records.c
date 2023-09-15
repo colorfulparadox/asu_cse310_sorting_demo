@@ -14,6 +14,11 @@ void dec_ar() {
     current_ar -= 1;
 }
 
+void reset_ar() {
+    max_ar = 0;
+    current_ar = 0;
+}
+
 void print_ar() {
     printf("MAX ACTIVE RECORDS: %d\n", max_ar);
 }

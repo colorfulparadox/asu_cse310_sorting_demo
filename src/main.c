@@ -47,7 +47,7 @@ int main(int argc, char *argv[]) {
         size += 1;
     }
 
-    if (size <= 0) {
+    if (size < 0) {
         printf("INPUT FILE [%s] DID NOT HAVE VALID DATA!\n", file_name);
         return 0;
     }
@@ -63,9 +63,9 @@ int main(int argc, char *argv[]) {
 
     //-------------------------------------------------------------------------------//
 
-    print_divider();
 
     if (strcmp(sort_type, "quicksort") == 0) {
+        print_divider();
         printf("QUICKSORT\n");
         print_divider();
         printf("BEFORE SORTING:\n");
@@ -74,7 +74,8 @@ int main(int argc, char *argv[]) {
 
         quicksort(array, 0, size);
         print_ar();
-
+        reset_ar();
+        
         print_divider();
         printf("AFTER SORTING:\n");
         print_int_array(array, size);

@@ -56,7 +56,7 @@ int partition(int array[], int p, int r, char *info) {
     printf("PIVOT HIGHLIGHT [STATUS: %s]: ", info);
     print_array_with_highlight(array, 0, max_size, r);
 
-    for (int j = p; j <= r-1; j++) {
+    for (int j = p; j < r; j++) {
         if (array[j] < x) {
             i += 1;
             temp = array[i];
@@ -87,7 +87,7 @@ int partition(int array[], int p, int r, char *info) {
 void quicksort_helper(int array[], int p, int r, char *info) {
     inc_ar();
     if (p < r) {
-        int q = partition(array, p, r-1, info);
+        int q = partition(array, p, r, info);
         quicksort_helper(array, p, q-1, "LEFT");
         quicksort_helper(array, q+1, r, "RIGHT");
     }
@@ -96,5 +96,5 @@ void quicksort_helper(int array[], int p, int r, char *info) {
 
 void quicksort(int array[], int p, int r) {
     max_size = r;
-    quicksort_helper(array, p, r, "FIRST");
+    quicksort_helper(array, p, r-1, "FIRST");
 }
