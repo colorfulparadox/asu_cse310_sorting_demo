@@ -63,7 +63,6 @@ int main(int argc, char *argv[]) {
 
     //-------------------------------------------------------------------------------//
 
-    printf("Sorting Demo!\n");
     print_divider();
 
     if (strcmp(sort_type, "quicksort") == 0) {
