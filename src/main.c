@@ -3,6 +3,7 @@
 #include <string.h>
 
 #include "../includes/quicksort.h"
+#include "../includes/active_records.h"
 
 void print_int_array(int array[], int len) {
     printf("[ ");
@@ -13,7 +14,7 @@ void print_int_array(int array[], int len) {
 }
 
 void print_divider() {
-    printf("\n-----------------------------------------------\n");
+    printf("-----------------------------------------------\n");
 }
 
 FILE* open_file(char *file_name) {
@@ -63,13 +64,20 @@ int main(int argc, char *argv[]) {
     //-------------------------------------------------------------------------------//
 
     printf("Sorting Demo!\n");
+    print_divider();
 
     if (strcmp(sort_type, "quicksort") == 0) {
         printf("QUICKSORT\n");
+        print_divider();
         printf("BEFORE SORTING:\n");
         print_int_array(array, size);
-        printf("AFTER SORTING:\n");
+        print_divider();
+
         quicksort(array, 0, size);
+        print_ar();
+
+        print_divider();
+        printf("AFTER SORTING:\n");
         print_int_array(array, size);
     } else {
         printf("INVALID SORT TYPE [%s]\n", sort_type);
