@@ -1,8 +1,9 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include <string.h>
+#include<string.h>
 
 #include "../includes/quicksort.h"
+#include "../includes/insertsort.h"
 #include "../includes/active_records.h"
 
 void print_int_array(int array[], int len) {
@@ -28,7 +29,7 @@ FILE* open_file(char *file_name) {
 
 int main(int argc, char *argv[]) {
     if (argc < 2) {
-        printf("MISSING SORT TYPE! [quicksort, _, _]\n");
+        printf("MISSING SORT TYPE! [quicksort, insertsort, _]\n");
         return 1;
     }
     if (argc < 3) {
@@ -73,6 +74,21 @@ int main(int argc, char *argv[]) {
         print_divider();
 
         quicksort(array, 0, size);
+        print_ar();
+        reset_ar();
+        
+        print_divider();
+        printf("AFTER SORTING:\n");
+        print_int_array(array, size);
+    } else if (strcmp(sort_type, "insertsort") == 0) {
+        print_divider();
+        printf("INSERTSORT\n");
+        print_divider();
+        printf("BEFORE SORTING:\n");
+        print_int_array(array, size);
+        print_divider();
+
+        insertsort(array, size);
         print_ar();
         reset_ar();
         
