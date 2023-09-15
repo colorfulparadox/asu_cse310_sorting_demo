@@ -5,4 +5,4 @@ to clean: make clean
 
 and to run
 
-./build/program input.text
+./build/program quicksort input.text [other sort types: quicksort, mergesort, insertsort]

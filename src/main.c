@@ -60,17 +60,20 @@ int main(int argc, char *argv[]) {
     }
     fclose(fp);
 
+    //-------------------------------------------------------------------------------//
+
     printf("Sorting Demo!\n");
 
     if (strcmp(sort_type, "quicksort") == 0) {
         printf("QUICKSORT\n");
-        printf("BEFORE:\n");
+        printf("BEFORE SORTING:\n");
         print_int_array(array, size);
-        printf("AFTER:\n");
+        printf("AFTER SORTING:\n");
         quicksort(array, 0, size);
         print_int_array(array, size);
     } else {
         printf("INVALID SORT TYPE [%s]\n", sort_type);
+        return 1;
     }
 
     return 0;
