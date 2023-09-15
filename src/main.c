@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include <string.h>
 
 #include "../includes/quicksort.h"
 
@@ -26,11 +27,16 @@ FILE* open_file(char *file_name) {
 
 int main(int argc, char *argv[]) {
     if (argc < 2) {
+        printf("MISSING SORT TYPE! [quicksort, _, _]\n");
+        return 1;
+    }
+    if (argc < 3) {
         printf("MISSING FILE PATH!\n");
         return 1;
     }
 
-    char *file_name = argv[1];
+    char *sort_type = argv[1];
+    char *file_name = argv[2];
     FILE *fp = open_file(file_name);
     
     int size = 0;
@@ -55,13 +61,17 @@ int main(int argc, char *argv[]) {
     fclose(fp);
 
     printf("Sorting Demo!\n");
-    printf("QUICKSORT\n");
-    printf("BEFORE:\n");
-    print_int_array(array, size);
-    printf("AFTER:\n");
-    quicksort(array, 0, size);
-    print_int_array(array, size);
 
+    if (strcmp(sort_type, "quicksort") == 0) {
+        printf("QUICKSORT\n");
+        printf("BEFORE:\n");
+        print_int_array(array, size);
+        printf("AFTER:\n");
+        quicksort(array, 0, size);
+        print_int_array(array, size);
+    } else {
+        printf("INVALID SORT TYPE [%s]\n", sort_type);
+    }
 
     return 0;
 }
