@@ -51,11 +51,10 @@ int partition(int array[], int p, int r, char *info) {
     int i = p-1;
     int temp = 0;
 
-    if (p < r) {
-        printf("p: %d, r: %d\n", i, r);
-        printf("PIVOT HIGHLIGHT [STATUS: %s]: ", info);
-        print_array_with_highlight(array, 0, max_size, r-1);
-    }
+    //ugh i can't think when I did this
+    printf("p: %d, r: %d\n", i, r);
+    printf("PIVOT HIGHLIGHT [STATUS: %s]: ", info);
+    print_array_with_highlight(array, 0, max_size, r);
 
     for (int j = p; j <= r-1; j++) {
         if (array[j] < x) {
@@ -64,6 +63,7 @@ int partition(int array[], int p, int r, char *info) {
             array[i] = array[j];
             array[j] = temp;
 
+            printf("i: %d, j: %d ", i, j);
             printf("   ITEMS MOVED: ");
             int highlights[2] = {j, i};
             print_array_with_highlights(array, 0, max_size, highlights);
@@ -75,7 +75,7 @@ int partition(int array[], int p, int r, char *info) {
     array[r] = temp;
 
     printf("MOVE PIVOT: ");
-    int highlights[2] = {i+1, r-1};
+    int highlights[2] = {i+1, r};
     print_array_with_highlights(array, 0, max_size, highlights);
 
     dec_ar();
@@ -86,7 +86,7 @@ int partition(int array[], int p, int r, char *info) {
 void quicksort_helper(int array[], int p, int r, char *info) {
     inc_ar();
     if (p < r) {
-        int q = partition(array, p, r, info);
+        int q = partition(array, p, r-1, info);
         quicksort_helper(array, p, q-1, "LEFT");
         quicksort_helper(array, q+1, r, "RIGHT");
     }
