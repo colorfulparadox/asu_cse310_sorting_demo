@@ -63,8 +63,8 @@ int partition(int array[], int p, int r, char *info) {
             array[i] = array[j];
             array[j] = temp;
 
-            printf("i: %d, j: %d ", i, j);
-            printf("   ITEMS MOVED: ");
+            printf("    [i: %d, j: %d] ", i, j);
+            printf("ITEMS MOVED: ");
             int highlights[2] = {j, i};
             print_array_with_highlights(array, 0, max_size, highlights);
 
@@ -74,7 +74,8 @@ int partition(int array[], int p, int r, char *info) {
     array[i+1] = array[r];
     array[r] = temp;
 
-    printf("MOVE PIVOT: ");
+    printf("[i+1: %d, r: %d] ", i+1, r);
+    printf(" MOVE PIVOT: ");
     int highlights[2] = {i+1, r};
     print_array_with_highlights(array, 0, max_size, highlights);
 
